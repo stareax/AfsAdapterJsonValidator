@@ -1,0 +1,211 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "applicationData": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "applicationExtId": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "queryGuid": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "loanApplicationCreateDateTimeExt": {
+          "type": "integer"
+        },
+        "loanApplicationDateTime": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "applicationId",
+        "applicationExtId",
+        "queryGuid",
+        "loanApplicationCreateDateTimeExt",
+        "loanApplicationDateTime"
+      ]
+    },
+    "searchData": {
+      "type": "object",
+      "properties": {
+        "tax": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "entityId": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "entityExtId": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "entityType": {
+                  "type": "string",
+                  "maxLength": 10
+                },
+                "tin": {
+                  "type": "string",
+                  "maxLength": 12
+                }
+              },
+              "required": [
+                "id",
+                "entityId",
+                "entityExtId",
+                "entityType",
+                "tin"
+              ]
+            }
+          ]
+        },
+        "person": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "entityId": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "entityExtId": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "lastNm": {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                "firstNm": {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                "patronNm": {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                "birthDt": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "id",
+                "entityId",
+                "entityExtId",
+                "lastNm",
+                "firstNm",
+                "patronNm",
+                "birthDt"
+              ]
+            }
+          ]
+        },
+        "doc": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "entityId": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "entityExtId": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "docSeries": {
+                  "type": "string",
+                  "maxLength": 10
+                },
+                "docNumber": {
+                  "type": "string",
+                  "maxLength": 20
+                }
+              },
+              "required": [
+                "id",
+                "entityId",
+                "entityExtId",
+                "docSeries",
+                "docNumber"
+              ]
+            }
+          ]
+        },
+        "phone": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "entityId": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "entityExtId": {
+                  "type": "null",
+                  "maxLength": 50
+                },
+                "entityType": {
+                  "type": "string",
+                  "maxLength": 10
+                },
+                "phoneType": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "phoneNumber": {
+                  "type": "string",
+                  "maxLength": 10,
+                  "pattern": "^[0-9]+$"
+                }
+              },
+              "required": [
+                "id",
+                "entityId",
+                "entityExtId",
+                "entityType",
+                "phoneType",
+                "phoneNumber"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "tax",
+        "person",
+        "doc",
+        "phone"
+      ]
+    }
+  },
+  "required": [
+    "applicationData",
+    "searchData"
+  ]
+}

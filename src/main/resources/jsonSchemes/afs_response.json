@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "responseCd": {
+      "type": "integer",
+      "enum": [1,2,4]
+    },
+    "responseDscr": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "responseDt": {
+      "type": "integer"
+    },
+    "applicationData": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "applicationExtId": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "queryGuid": {
+          "type": "string",
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "applicationId",
+        "applicationExtId",
+        "queryGuid"
+      ]
+    },
+    "resultData": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "rules": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "ruleCd": {
+                      "type": "string",
+                      "maxLength": 50
+                    },
+                    "ruleGrp": {
+                      "type": "string",
+                      "maxLength": 50
+                    },
+                    "ruleDscr": {
+                      "type": "string",
+                      "maxLength": 1000
+                    },
+                    "itemCreateDt": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "ruleCd",
+                    "ruleGrp",
+                    "ruleDscr",
+                    "itemCreateDt"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "rules"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "responseCd",
+    "responseDscr",
+    "responseDt",
+    "applicationData",
+    "resultData"
+  ]
+}
